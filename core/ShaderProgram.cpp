@@ -3,6 +3,7 @@
 //
 
 #include "ShaderProgram.h"
+#include <stdexcept>
 
 constexpr unsigned int buffer_size = 512;
 
