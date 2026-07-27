@@ -6,12 +6,12 @@
 #define PEBBLEENGINE_VERTEX_H
 #include <glm/glm.hpp>
 
-struct Vertex
+struct VertexData
 {
-    glm::vec3 position;
-    glm::vec3 color;
-    glm::vec3 normal;
-    glm::vec2 tex_coords;
+    std::vector<glm::vec3> position;
+    std::vector<glm::vec3> normal;
+    std::vector<glm::vec3> tangent;
+    std::vector<glm::vec2> uv;
 };
 
 #endif //PEBBLEENGINE_VERTEX_H

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.23)
 project(PebbleEngine LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(OpenGL REQUIRED)
@@ -20,6 +20,12 @@ add_executable(PebbleEngine
         core/Shader.h
         core/Shader.cpp
         core/Vertex.h
+        core/Shape.h
+        core/Shape.cpp
+        core/Buffers.h
+        core/Buffers.cpp
+        core/VertexArray.h
+        core/VertexArray.cpp
 )
 
 target_include_directories(PebbleEngine
