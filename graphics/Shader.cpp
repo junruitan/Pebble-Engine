@@ -88,7 +88,7 @@ namespace engine
         return *this;
     }
 
-    std::string Shader::get_type_str() const
+    std::string Shader::GetTypeStr() const
     {
         if (type_ == GL_VERTEX_SHADER)
         {

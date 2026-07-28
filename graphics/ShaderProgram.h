@@ -19,8 +19,8 @@ namespace engine
         ShaderProgram(ShaderProgram&&) noexcept;
         ShaderProgram& operator=(ShaderProgram&&) noexcept;
 
-        inline void use() { glUseProgram(handle_); }
-        inline GLuint get_handle() const { return handle_; }
+        inline void Use() { glUseProgram(handle_); }
+        inline GLuint GetHandle() const { return handle_; }
 
         // Disable copy
         ShaderProgram(const ShaderProgram&) = delete;

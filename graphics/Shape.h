@@ -13,7 +13,7 @@ namespace engine
      {
      public:
           Triangle(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2);
-          [[nodiscard]] std::array<glm::vec3, 3> const& get_vertices() const { return vertices; }
+          [[nodiscard]] std::array<glm::vec3, 3> const& GetVertices() const { return vertices; }
      private:
           std::array<glm::vec3, 3> vertices{glm::vec3(0.0f), glm::vec3(0.0f), glm::vec3(0.0f)};
      };

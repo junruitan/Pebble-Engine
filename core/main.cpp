@@ -53,7 +53,7 @@ int main()
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
-        shader_program.use();
+        shader_program.Use();
         glBindVertexArray(VAO);
         //glDrawArrays(GL_TRIANGLES, 0, 3);
         //glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);

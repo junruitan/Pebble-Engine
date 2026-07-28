@@ -18,13 +18,13 @@ namespace engine
         VertexArray(VertexArray&&) noexcept;
         VertexArray& operator=(VertexArray&&) noexcept;
 
-        inline GLuint get_handle() const { return handle_; }
+        inline GLuint GetHandle() const { return handle_; }
 
         VertexArray(const VertexArray&) = delete;
         VertexArray& operator=(const VertexArray&) = delete;
 
-        inline void bind() { glBindVertexArray(handle_); }
-        inline void unbind() { glBindVertexArray(0); }
+        inline void BindHandle() { glBindVertexArray(handle_); }
+        inline void UnbindHandle() { glBindVertexArray(0); }
 
     private:
         GLuint handle_ = 0;

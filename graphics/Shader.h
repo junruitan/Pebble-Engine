@@ -21,10 +21,10 @@ namespace engine
         Shader(Shader&& other) noexcept;
         Shader& operator=(Shader&& other) noexcept;
 
-        std::string get_type_str() const;
+        std::string GetTypeStr() const;
 
-        inline GLenum get_type() const { return type_; };
-        inline GLuint get_handle() const { return handle_; };
+        inline GLenum GetType() const { return type_; };
+        inline GLuint GetHandle() const { return handle_; };
 
         Shader(const Shader& shader) = delete;
         Shader& operator=(const Shader& shader) = delete;

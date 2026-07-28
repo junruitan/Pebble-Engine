@@ -18,8 +18,8 @@ namespace engine
             throw std::runtime_error("Unable to create a new shader program");
         }
 
-        glAttachShader(handle_, vertex_shader.get_handle());
-        glAttachShader(handle_, fragment_shader.get_handle());
+        glAttachShader(handle_, vertex_shader.GetHandle());
+        glAttachShader(handle_, fragment_shader.GetHandle());
         glLinkProgram(handle_);
 
         GLint link_status = 0;

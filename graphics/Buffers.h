@@ -20,7 +20,7 @@ namespace engine
         VertexBuffer(VertexBuffer&&) noexcept;
         VertexBuffer& operator=(VertexBuffer&&) noexcept;
 
-        inline GLuint handle() const { return handle_; }
+        inline GLuint GetHandle() const { return handle_; }
 
         VertexBuffer(VertexBuffer const&) = delete;
         VertexBuffer& operator=(VertexBuffer const&) = delete;
@@ -40,7 +40,7 @@ namespace engine
         ElementBuffer(ElementBuffer const&) = delete;
         ElementBuffer& operator=(ElementBuffer const&) = delete;
 
-        inline GLuint handle() const { return handle_; }
+        inline GLuint GetHandle() const { return handle_; }
 
     private:
         GLuint handle_     = 0;
