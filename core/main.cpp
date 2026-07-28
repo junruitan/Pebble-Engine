@@ -1,8 +1,8 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <glfw/glfw3.h>
-#include "Buffers.h"
-#include "ShaderProgram.h"
+#include "../graphics/Buffers.h"
+#include "../graphics/ShaderProgram.h"
 
 int main()
 {

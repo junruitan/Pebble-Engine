@@ -41,8 +41,9 @@ namespace engine
         ElementBuffer& operator=(ElementBuffer const&) = delete;
 
         inline GLuint handle() const { return handle_; }
+
     private:
-        GLuint handle_ = 0;
+        GLuint handle_     = 0;
     };
 }
 

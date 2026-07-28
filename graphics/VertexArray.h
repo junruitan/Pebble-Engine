@@ -8,7 +8,7 @@
 
 namespace engine
 {
-#if 0
+
     class VertexArray
     {
     public:
@@ -22,10 +22,14 @@ namespace engine
 
         VertexArray(const VertexArray&) = delete;
         VertexArray& operator=(const VertexArray&) = delete;
+
+        inline void bind() { glBindVertexArray(handle_); }
+        inline void unbind() { glBindVertexArray(0); }
+
     private:
         GLuint handle_ = 0;
     };
-#endif
+
 
 }
 

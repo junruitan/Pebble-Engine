@@ -15,17 +15,19 @@ add_subdirectory(extern/lib/glfw)
 add_executable(PebbleEngine
     core/main.cpp
     extern/lib/glad.c
-        core/ShaderProgram.h
-        core/ShaderProgram.cpp
-        core/Shader.h
-        core/Shader.cpp
-        core/Vertex.h
-        core/Shape.h
-        core/Shape.cpp
-        core/Buffers.h
-        core/Buffers.cpp
-        core/VertexArray.h
-        core/VertexArray.cpp
+    graphics/ShaderProgram.h
+    graphics/ShaderProgram.cpp
+    graphics/Shader.h
+    graphics/Shader.cpp
+    graphics/Vertex.h
+    graphics/Shape.h
+    graphics/Shape.cpp
+    graphics/Buffers.h
+    graphics/Buffers.cpp
+    graphics/VertexArray.h
+    graphics/VertexArray.cpp
+        graphics/RenderObject.h
+        camera/Camera.h
 )
 
 target_include_directories(PebbleEngine
