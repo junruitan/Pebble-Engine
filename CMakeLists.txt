@@ -28,6 +28,8 @@ add_executable(PebbleEngine
     graphics/VertexArray.cpp
         graphics/RenderObject.h
         camera/Camera.h
+        camera/Camera.cpp
+        math/Transform.h
 )
 
 target_include_directories(PebbleEngine
