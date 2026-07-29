@@ -9,9 +9,6 @@ namespace engine
 {
     class ShaderProgram
     {
-    private:
-        GLuint    handle_ = 0;
-
     public:
         ShaderProgram(Shader&& vertex_shader, Shader&& fragment_shader);
         ~ShaderProgram();
@@ -25,6 +22,9 @@ namespace engine
         // Disable copy
         ShaderProgram(const ShaderProgram&) = delete;
         ShaderProgram& operator=(const ShaderProgram&) = delete;
+
+    private:
+        GLuint    handle_ = 0;
     };
 }
 

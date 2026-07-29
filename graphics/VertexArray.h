@@ -8,7 +8,6 @@
 
 namespace engine
 {
-
     class VertexArray
     {
     public:

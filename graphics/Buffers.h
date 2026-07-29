@@ -5,7 +5,7 @@
 #ifndef PEBBLEENGINE_BUFFERS_H
 #define PEBBLEENGINE_BUFFERS_H
 #include "glad/glad.h"
-#include "Shape.h"
+#include <glm/glm.hpp>
 #include <span>
 
 namespace engine

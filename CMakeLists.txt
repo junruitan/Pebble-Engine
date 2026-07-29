@@ -30,6 +30,7 @@ add_executable(PebbleEngine
         camera/Camera.h
         camera/Camera.cpp
         math/Transform.h
+        graphics/RenderObject.cpp
 )
 
 target_include_directories(PebbleEngine
