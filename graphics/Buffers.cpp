@@ -10,8 +10,6 @@ namespace engine
     {
         glGenBuffers(1, &handle_);
 
-        // add error handling here
-
         glBindBuffer(GL_ARRAY_BUFFER, handle_);
         glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices.data(), GL_STATIC_DRAW);
     }

@@ -95,17 +95,6 @@ int main()
     engine::Camera cam(cam_pos, cam_view);
     cam.Update(); // update once
 
-
-
-    //unsigned int VAO;
-    // glGenVertexArrays(1, &VAO);
-    // glBindVertexArray(VAO);
-    // engine::VertexBuffer vertex_buffer(vertices);
-    // engine::ElementBuffer element_buffer(indices);
-    // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    // glEnableVertexAttribArray(0);
-
-
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {

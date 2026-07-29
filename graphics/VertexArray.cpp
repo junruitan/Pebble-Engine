@@ -12,6 +12,7 @@ namespace engine
     VertexArray::VertexArray()
     {
         glGenVertexArrays(1, &handle_);
+        glBindVertexArray(handle_);
     }
 
     VertexArray::~VertexArray()
