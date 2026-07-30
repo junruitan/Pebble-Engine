@@ -6,6 +6,7 @@
 #include "../math/Transform.h"
 #include "../camera/Camera.h"
 #include "glm/ext/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
 
 int main()
 {
@@ -80,7 +81,7 @@ int main()
     engine::RenderObject object(data, indices);
     engine::Transform    transform;
 
-    transform.scale = glm::vec3(1.0f, 2.0f, 1.0f);
+    transform.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     transform.translation = glm::vec3(0.0f, 0.0f, 0.0f);
     transform.rotation = glm::vec3(1.0f, 0.0f, 0.0f);
 
@@ -90,18 +91,33 @@ int main()
 
     transform.model_to_world = translation * rotation * scale;
 
-    glm::vec3 cam_pos = glm::vec3(0.0f, 0.0f, -5.0f);
-    glm::vec3 cam_view = glm::vec3(0.f, 0.0f, 5.0f) - cam_pos;
-    engine::Camera cam(cam_pos, cam_view);
-    cam.Update(); // update once
+    glm::vec3 cam_pos = glm::vec3(2.0f, 0.0f, 15.0f);
+    glm::vec3 cam_view = glm::normalize(glm::vec3(0.f, 0.0f, 0.0f) - cam_pos);
+
+    engine::CameraSettings camera_settings =
+    {
+        .field_of_view = 45.0f,
+        .aspect_ratio = 640.0f/480.0f,
+        .near_plane = 0.1f,
+        .far_plane = 1000.0f,
+    };
+
+    engine::Camera cam(cam_pos, cam_view, camera_settings);
+    glm::mat4 p = glm::perspective(glm::radians(45.0f), 640.0f / 480.0f, 0.1f, 100.0f);
+    glm::mat4 mvp = p * cam.GetViewMatrix() * transform.model_to_world;
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
-
+        // glViewport(0, 0, 640, 480);
+        GLuint uniform_location = glGetUniformLocation(shader_program.GetHandle(), "uMVP");
         shader_program.Use();
+        if (uniform_location >= 0)
+        {
+           glUniformMatrix4fv(uniform_location, 1, GL_FALSE, glm::value_ptr(mvp));
+        }
         glBindVertexArray(object.GetVaoHandle());
         //glDrawArrays(GL_TRIANGLES, 0, 3);
         glDrawElements(GL_TRIANGLES, object.GetIndiciesCount(), GL_UNSIGNED_INT, 0);
