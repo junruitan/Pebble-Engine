@@ -89,7 +89,7 @@ int main()
     glm::mat4 translation = glm::translate(glm::mat4(1.0f), transform.translation);
     glm::mat4 rotation = glm::rotate(glm::mat4(1.0f), 45.0f, transform.rotation);
 
-    transform.model_to_world = translation * rotation * scale;
+
 
     glm::vec3 cam_pos = glm::vec3(2.0f, 0.0f, 15.0f);
     glm::vec3 cam_view = glm::normalize(glm::vec3(0.f, 0.0f, 0.0f) - cam_pos);
@@ -104,7 +104,8 @@ int main()
 
     engine::Camera cam(cam_pos, cam_view, camera_settings);
     glm::mat4 p = glm::perspective(glm::radians(45.0f), 640.0f / 480.0f, 0.1f, 100.0f);
-    glm::mat4 mvp = p * cam.GetViewMatrix() * transform.model_to_world;
+
+    float angle = 45.0f;
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -112,6 +113,12 @@ int main()
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
         // glViewport(0, 0, 640, 480);
+
+        angle += 1.0f;
+        glm::mat4 rotation = glm::rotate(glm::mat4(1.0f), glm::radians(angle), transform.rotation);
+        transform.model_to_world = translation * rotation * scale;
+        glm::mat4 mvp = p * cam.GetViewMatrix() * transform.model_to_world;
+
         GLuint uniform_location = glGetUniformLocation(shader_program.GetHandle(), "uMVP");
         shader_program.Use();
         if (uniform_location >= 0)
